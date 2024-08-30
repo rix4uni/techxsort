@@ -63,7 +63,15 @@ Multiple URLs:
 cat httpx.txt | techxsort -file techx-output.json
 ```
 
-techxsort only supports input like this `techx-output.json`
+```
+cat httpx.txt
+https://carson.math.uwm.edu
+https://www.shodan.io
+https://agilezws.us.dell.com
+https://math.uwm.edu
+```
+
+techxsort only supports json input like this `techx-output.json`
 ```
 cat techx-output.json
 {
