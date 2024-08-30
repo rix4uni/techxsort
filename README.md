@@ -124,6 +124,6 @@ cat httpx.txt | techxsort -file techx-output.json
 ```
 subfinder -d hackerone.com -all -duc -silent | httpx -duc -silent -mc 200 -t 300 | unew httpx.txt
 cat httpx.txt | katana -duc -silent -f udir -ct 60 | unew | techx -json -o techx-output.json
-cat httpx.txt | techxsort -file techx-output.json -o techxsort.json
-nucleitechx -file techxsort.json -nucleicmd "nuclei -duc -silent -tags {tech} -es unknown,info,low" -process -append nuclei-output.txt
+cat httpx.txt | techxsort -file techx-output.json -o techxsort-output.json
+nucleitechx -file techxsort-output.json -nucleicmd "nuclei -duc -silent -tags {tech} -es unknown,info,low" -process -append nuclei-output.txt
 ```
