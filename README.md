@@ -107,6 +107,13 @@ cat techx-output.json
 ```
 cat httpx.txt | techxsort -file techx-output.json
 {
+  "host": "https://agilezws.us.dell.com",
+  "count": 1,
+  "tech": [
+    "df"
+  ]
+}
+{
   "host": "https://carson.math.uwm.edu",
   "count": 6,
   "tech": [
@@ -126,4 +133,74 @@ subfinder -d hackerone.com -all -duc -silent | httpx -duc -silent -mc 200 -t 300
 cat httpx.txt | katana -duc -silent -f udir -ct 60 | unew | techx -json -o techx-output.json
 cat httpx.txt | techxsort -file techx-output.json -o techxsort-output.json
 nucleitechx -file techxsort-output.json -nucleicmd "nuclei -duc -silent -tags {tech} -es unknown,info,low" -process -append nuclei-output.txt
+```
+
+# TODO
+- add `-duplicate-tech` flag to remove those host name that matched tech same
+```
+# input
+{
+  "host": "https://agilezws.us.dell.com",
+  "count": 1,
+  "tech": [
+    "df"
+  ]
+}
+{
+  "host": "https://carson.math.uwm.edu/admin",
+  "count": 2,
+  "tech": [
+    "Apache HTTP Server",
+    "HSTS"
+  ]
+}
+{
+  "host": "https://carson.math.uwm.edu/test",
+  "count": 2,
+  "tech": [
+    "Apache HTTP Server",
+    "HSTS"
+  ]
+}
+{
+  "host": "https://carson.math.uwm.edu/jenkins/computer/(built-in)/script",
+  "count": 6,
+  "tech": [
+    "Apache HTTP Server",
+    "HSTS",
+    "Java",
+    "Jenkins:2.452.2",
+    "Jetty:10.0.20",
+    "YUI"
+  ]
+}
+
+# output expecting
+{
+  "host": "https://agilezws.us.dell.com",
+  "count": 1,
+  "tech": [
+    "df"
+  ]
+}
+{
+  "host": "https://carson.math.uwm.edu/admin",
+  "count": 2,
+  "tech": [
+    "Apache HTTP Server",
+    "HSTS"
+  ]
+}
+{
+  "host": "https://carson.math.uwm.edu/jenkins/computer/(built-in)/script",
+  "count": 6,
+  "tech": [
+    "Apache HTTP Server",
+    "HSTS",
+    "Java",
+    "Jenkins:2.452.2",
+    "Jetty:10.0.20",
+    "YUI"
+  ]
+}
 ```
