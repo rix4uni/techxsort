@@ -1,0 +1,28 @@
+{
+  "host": "https://agilezws.us.dell.com",
+  "count": 1,
+  "tech": [
+    "df"
+  ]
+}
+{
+  "host": "https://carson.math.uwm.edu",
+  "count": 2,
+  "tech": [
+    "Apache HTTP Server",
+    "HSTS",
+    "Python"
+  ]
+}
+{
+  "host": "https://carson.math.uwm.edu/jenkins/computer/(built-in)/script",
+  "count": 6,
+  "tech": [
+    "Apache HTTP Server",
+    "HSTS",
+    "Java",
+    "Jenkins:2.452.2",
+    "Jetty:10.0.20",
+    "YUI"
+  ]
+}
