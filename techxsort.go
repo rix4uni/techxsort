@@ -11,6 +11,12 @@ import (
 	"sync"
 )
 
+const version = "0.0.1"
+
+func printVersion() {
+	fmt.Printf("techxsort version %s\n", version)
+}
+
 type Record struct {
 	Host  string   `json:"host"`
 	Count int      `json:"count"`
@@ -21,7 +27,14 @@ func main() {
 	// Define command-line flags
 	file := flag.String("file", "", "Path to the techx JSON file")
 	output := flag.String("o", "", "Path to save the output file")
+	versionFlag := flag.Bool("version", false, "Print the version of the tool and exit.")
 	flag.Parse()
+
+	// Print version and exit if --version flag is provided
+	if *versionFlag {
+		printVersion()
+		return
+	}
 
 	// Check if file flag is provided
 	if *file == "" {
