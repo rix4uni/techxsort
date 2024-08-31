@@ -130,7 +130,8 @@ cat httpx.txt | techxsort -file techx-output.json
 # Usage Example
 ```
 subfinder -d hackerone.com -all -duc -silent | httpx -duc -silent -mc 200 -t 300 | unew httpx.txt
-cat httpx.txt | katana -duc -silent -f udir -ct 60 | unew | techx -json -o techx-output.json
+cat httpx.txt | katana -duc -silent -fs fqdn -c 100 -p 100 -f udir -ct 60 -o katana.txt
+cat katana.txt | unew | techx -json -o techx-output.json
 cat httpx.txt | techxsort -file techx-output.json -o techxsort-output.json
 nucleitechx -file techxsort-output.json -nucleicmd "nuclei -duc -silent -tags {tech} -es unknown,info,low" -process -append nuclei-output.txt
 ```
@@ -138,7 +139,7 @@ nucleitechx -file techxsort-output.json -nucleicmd "nuclei -duc -silent -tags {t
 # TODO
 - add `-duplicate-tech` flag to remove those host name that matched tech same
 ```
-# input
+# cat techx-output.json
 {
   "host": "https://agilezws.us.dell.com",
   "count": 1,
@@ -176,6 +177,7 @@ nucleitechx -file techxsort-output.json -nucleicmd "nuclei -duc -silent -tags {t
 }
 
 # output expecting
+cat techxsort-output.json
 {
   "host": "https://agilezws.us.dell.com",
   "count": 1,
